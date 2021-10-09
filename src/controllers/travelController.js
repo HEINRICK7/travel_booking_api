@@ -1,4 +1,3 @@
-const express = require('express');
 
 const Travel = require('../models/Travel');
 const Admin = require('../models/Admin');
@@ -38,23 +37,25 @@ module.exports = {
         
 
     },
-/*
+
     async index(req, res) {
         try {
-            const users = await Travel.find();
+            const travelers = await Travel.find();
 
-            return res.send({ users })
+            return res.send({ travelers })
         } catch (error) {
 
             return res.status(400).send({ error: 'Error loading'});
             
         }
     },
-
+    
+ /*
     async show(req, res) {
+        const { _id } = req.parms;
         try {
-            const userId = await Travel.findById(req.params.userId);
-
+            const userId = await Travel.findById(_id);
+            
             return res.send({ userId })
         } catch (error) {
 
@@ -62,6 +63,7 @@ module.exports = {
             
         }
     },
+   
     async update(req, res) {
         try {
           const {
