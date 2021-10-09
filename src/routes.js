@@ -3,15 +3,19 @@ const routes = express.Router();
 
 const authMiddleware = require('./middlewares/auth')
 
-const AuthController = require('./controllers/authController');
+const LoginController = require('./controllers/LoginController');
+const RegisterController = require('./controllers/registerController');
 const TravelController = require('./controllers/travelController');
 
 
-routes.post('/register',authMiddleware, AuthController.store);
-//routes.get('/users', UserController.index);
+routes.post('/login', LoginController.store);
 
-routes.post('/travel_register',authMiddleware, TravelController.store);
-//routes.get('/users/:user_id/results', ResultController.index);
+routes.post('/register', RegisterController.store);
+
+
+routes.post('/travel_register', authMiddleware, TravelController.store);
+routes.get('/travel_all', authMiddleware, TravelController.index);
+//routes.get('/travel/:travel_id/results', authMiddleware, TravelController.show);
 //routes.delete('/results/:id', ResultController.destroy);
 
 //routes.get('/profile', ProfileController.index);
