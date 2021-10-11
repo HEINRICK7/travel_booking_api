@@ -5,10 +5,15 @@ const TravelSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    date: {
+    date_initial: {
         type: Date,
         require: true
     },
+    date_end: {
+        type: Date,
+        require: true
+    },
+    
     departure_time: {
         type: String,
         require: true
