@@ -53,20 +53,21 @@ module.exports = {
         }
     },
     
- /*
+ 
     async show(req, res) {
-        const { _id } = req.parms;
+        
         try {
-            const userId = await Travel.findById(_id);
+            const travel = await Travel.findById({ _id: req.params._id });
             
-            return res.send({ userId })
+            return res.send({travel})
+            
         } catch (error) {
 
             return res.status(400).send({ error: 'Error loading'});
             
         }
     },
-   
+   /*
     async update(req, res) {
         try {
           const {

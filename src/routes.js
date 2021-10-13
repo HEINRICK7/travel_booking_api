@@ -15,7 +15,7 @@ routes.post('/register',authMiddleware, RegisterController.store);
 
 routes.post('/travel_register',authMiddleware, TravelController.store);
 routes.get('/travel_all', TravelController.index);
-//routes.get('/travel/:travel_id/results', authMiddleware, TravelController.show);
+routes.get('/travel/:_id', TravelController.show);
 //routes.delete('/results/:id', ResultController.destroy);
 
 //routes.get('/profile', ProfileController.index);
