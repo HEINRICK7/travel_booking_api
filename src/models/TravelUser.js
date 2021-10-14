@@ -38,6 +38,11 @@ const TravelUserSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    travel_id:[{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref:'Travel',
+        require: true
+    }]
 });
 const TravelUser = mongoose.model('TravelUser', TravelUserSchema);
 
