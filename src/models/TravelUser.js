@@ -18,7 +18,7 @@ const TravelUserSchema = new mongoose.Schema({
         require: true
     },
     cidade: {
-        type: Date,
+        type: String,
         require: true
     },
     
