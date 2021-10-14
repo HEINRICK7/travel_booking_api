@@ -11,7 +11,7 @@ async store(req, res){
         if(await TravelUser.findOne({cpf}))
             return res.status(400).send({error: 'Admin already exists'})
 
-            const travelUser = await TravelUser.create(req.body);
+            const travelUser = await TravelUser.create(req.body,travel_id);
 
             return res.send({ 
                 travelUser,
