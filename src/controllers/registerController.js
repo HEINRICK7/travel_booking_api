@@ -7,8 +7,10 @@ async store(req, res){
     const { email } = req.body;
 
     try {
-        if(await Admin.findOne({email}))
+        if(await Admin.findOne({email})){
             return res.status(400).send({error: 'Admin already exists'})
+        }
+        else {
 
             const admin = await Admin.create(req.body);
 
@@ -16,6 +18,7 @@ async store(req, res){
 
 
             return res.send({ admin });
+        }
 
     }
     catch (err){
