@@ -11,10 +11,10 @@ const TravelUserController = require('./controllers/travelUserController')
 
 routes.post('/login', LoginController.store);
 
-routes.post('/register',authMiddleware, RegisterController.store);
-
+routes.post('/register', RegisterController.store);
 
 routes.post('/travel_register',authMiddleware, TravelController.store);
+
 
 routes.post('/travel_register_user', TravelUserController.store);
 
