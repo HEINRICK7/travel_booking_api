@@ -4,30 +4,12 @@ const Admin = require('../models/Admin');
 
 
 module.exports = {
-
+   
     async store(req, res){
-        const { name, city, state, date_initial, date_end, departure_time, price, quant_min, quant_max, quant_day, description, image_url } = req.body;
 
         try {
-            if (await Travel.findOne({ date_initial }))
-                return res.status(400).send({ error: 'Travel Boocking already exists' });
-
-                const travel_booking = await Travel.create({
-                    name,
-                    city,
-                    state,
-                    date_initial,
-                    date_end, 
-                    departure_time,
-                    price,
-                    quant_min,
-                    quant_max,
-                    quant_day,
-                    description,
-                    image_url,
-                    
-                    
-                });
+           
+                const travel_booking = await Travel.create(req.body);
 
             return res.send({travel_booking});
 

@@ -1,6 +1,8 @@
 
 const TravelUser = require('../models/TravelUser');
 const TravelAdmin = require('../models/Travel');
+
+
 module.exports = {
 
 async store(req, res){
