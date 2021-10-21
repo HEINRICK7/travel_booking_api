@@ -34,7 +34,7 @@ const TravelSchema = new mongoose.Schema({
         require: true
     },
     quant_day: {
-        type: Number,
+        type: String,
         require: true
     },
     description: {
@@ -51,7 +51,7 @@ const TravelSchema = new mongoose.Schema({
     },
     itinerary: [
         {
-            exit_location: {
+            
                 title: {
                     type: String,
                    
@@ -64,106 +64,6 @@ const TravelSchema = new mongoose.Schema({
                     type: String,
                     
                 },
-            },
-                first_stop: {
-                    title: {
-                        type: String,
-                        
-                    },
-                    description: {
-                        type: String,
-                        
-                    },
-                    departure_time: {
-                        type: String,
-                        
-                    }
-                },
-                second_stop:{
-                    title: {
-                        type: String,
-                        
-                    },
-                    description: {
-                        type: String,
-                        
-                    },
-                    departure_time: {
-                        type: String,
-                        
-                    },
-                },
-                third_stop: {
-                    title: {
-                        type: String,
-                        
-                    },
-                    description: {
-                        type: String,
-                        
-                    },
-                    departure_time: {
-                        type: String,
-                        
-                    },
-                },
-                fourth_stop: {
-                    title: {
-                        type: String,
-                        
-                    },
-                    description: {
-                        type: String,
-                        
-                    },
-                    departure_time: {
-                        type: String,
-                        
-                    },
-                },
-                fifth_stop: {
-                    title: {
-                        type: String,
-                        
-                    },
-                    description: {
-                        type: String,
-                        
-                    },
-                    departure_time: {
-                        type: String,
-                        
-                    },
-                },
-                sixth_stop: {
-                    title: {
-                        type: String,
-                        
-                    },
-                    description: {
-                        type: String,
-                        
-                    },
-                    departure_time: {
-                        type: String,
-                        
-                    },
-                },
-            arrival: {
-                title: {
-                    type: String,
-                   
-                },
-                description: {
-                    type: String,
-                   
-                },
-                departure_time: {
-                    type: String,
-                    
-                },
-            },
-
         }
     ],
     admin_id:[{ 
