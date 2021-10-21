@@ -10,16 +10,16 @@ const TravelUserController = require('./controllers/travelUserController')
 
 
 routes.post('/login', LoginController.store);
-
 routes.post('/register', RegisterController.store);
-
 routes.post('/travel_register',authMiddleware, TravelController.store);
+routes.get('/travel_all', TravelController.index);
+routes.get('/travel/:_id', TravelController.show);
 
 
 routes.post('/travel_register_user', TravelUserController.store);
+routes.get('/travel_user', TravelUserController.index);
 
-routes.get('/travel_all', TravelController.index);
-routes.get('/travel/:_id', TravelController.show);
+
 //routes.delete('/results/:id', ResultController.destroy);
 
 //routes.get('/profile', ProfileController.index);
