@@ -5,11 +5,13 @@ const S3 = require("aws-sdk/clients/s3");
 const multerS3 = require("multer-s3");
 
 const MAX_SIZE_TWO_MEGABYTES = 2 * 1024 * 1024;
+const Bucket = process.env.BUCKET_NAME;
 
 const s3 = new S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     region: process.env.AWS_DEFAULT_REGION,
+    bucket: process.env.BUCKET_NAME,
     })
 
 const storageTypes = {
@@ -29,7 +31,7 @@ const storageTypes = {
   }),
   s3: multerS3({
     s3: s3,
-    bucket: process.env.BUCKET_NAME,
+    bucket: Bucket,
     acl: "public-read",
     key: (req, file, cb) => {
       crypto.randomBytes(16, (err, hash) => {
