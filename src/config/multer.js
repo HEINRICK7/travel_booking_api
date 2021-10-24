@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const multer = require("multer");
 const path = require("path");
 const crypto = require("crypto");
@@ -7,12 +9,7 @@ const multerS3 = require("multer-s3");
 const MAX_SIZE_TWO_MEGABYTES = 2 * 1024 * 1024;
 const Bucket = process.env.BUCKET_NAME;
 
-const s3 = new S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_DEFAULT_REGION,
-    bucket: process.env.BUCKET_NAME,
-    })
+const s3 = new S3();
 
 const storageTypes = {
   local: multer.diskStorage({
