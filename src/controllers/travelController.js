@@ -1,16 +1,45 @@
+require('multer');
 
-const Travel = require('../models/Travel');
-const Admin = require('../models/Admin');
+const Travel = require('../models/Travel')
 
 
 module.exports = {
    
     async store(req, res){
+        const {originalname: name, size, key, location: url=''} = req.file;
+        const { name_package, city, state, date_initial, date_end, departure_time, price, quant_min, quant_max,quant_day, description, itinerary} = req.body;
+        const { title, description_itinerary, departure_time_itinerary } = itinerary;
 
         try {
            
-                const travel_booking = await Travel.create(req.body);
-
+            const travel_booking = await Travel.create(
+                {
+                    name_package,
+                    city, 
+                    state,
+                    date_initial,
+                    date_end,
+                    departure_time,
+                    price,
+                    quant_min,
+                    quant_max,
+                    quant_day,
+                    description,
+                    itinerary: {
+                        title,
+                        description_itinerary,
+                        departure_time_itinerary
+                    },
+                    file: {
+                        name,
+                        size,
+                        key,
+                        url
+                    }
+    
+                }
+            );
+            
             return res.send({travel_booking});
 
         } 
@@ -49,86 +78,4 @@ module.exports = {
             
         }
     },
-   /*
-    async update(req, res) {
-        try {
-          const {
-            matricula,
-            nome,
-            data_nasc,
-            cpf,
-            rg,
-            uf_servidor,
-            endereco,
-            bairro,
-            cidade,
-            cep,
-            escolaridade,
-            pis_pasep,
-            est_civil,
-            nome_conjuge,
-            tel_residencial,
-            tel_celular,
-            email,
-            ome_dependentes,
-            orgao_empregador,
-            municipio,
-            uf,
-            data_admissao,
-            telefone,
-            secretaria,
-            departamento,
-            carga_horaria,
-            funcao,
-            salario_base} = req.body;
-
-            const user_servidor = await Travel.findByIdAndUpdate(req.params.userId, {
-                matricula,
-                nome,
-                data_nasc,
-                cpf,
-                rg,
-                uf_servidor,
-                endereco,
-                bairro,
-                cidade,
-                cep,
-                escolaridade,
-                pis_pasep,
-                est_civil,
-                nome_conjuge,
-                tel_residencial,
-                tel_celular,
-                email,
-                ome_dependentes,
-                orgao_empregador,
-                municipio,
-                uf,
-                data_admissao,
-                telefone,
-                secretaria,
-                departamento,
-                carga_horaria,
-                funcao,
-                salario_base
-            }, {new: true});
-            
-            await user_servidor.save();
-
-            return res.send({user_servidor})    
-        } catch (error) {
-            return res.status(400).send({error: 'Error update '});
-        }
-    },
-    async destroy(req, res) {
-        try {
-           await Travel.findByIdAndRemove(req.params.userId);
-            return res.send()
-        } catch (error) {
-
-            return res.status(400).send({ error: 'Error deleting project'});
-            
-        }
-    }
-*/
-}
+}   

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongoURI = "mongodb+srv://travel:travel@cluster0.bnncd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const mongoURI = process.env.MONGO_URL
 
 mongoose.connect( mongoURI, 
 {   
