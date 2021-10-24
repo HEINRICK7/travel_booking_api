@@ -9,7 +9,7 @@ const MAX_SIZE_TWO_MEGABYTES = 2 * 1024 * 1024;
 const s3 = new S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION,
+    region: process.env.AWS_DEFAULT_REGION,
     })
 
 const storageTypes = {
