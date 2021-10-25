@@ -8,44 +8,43 @@ const s3 = new S3();
 
 const TravelSchema = new mongoose.Schema({
   name_package: {
-      type: String,
-      require: true,
+      type: String
+     
   },
   city:{
-      type: String,
-      require: true,
+      type: String
+      
   },
   state:{
-      type: String,
-      require: true,
-  },
+      type: String
+  },   
   date_initial: {
-      type: Date,
-      require: true
+      type: Date
+     
   },
   date_end: {
-      type: Date,
-      require: true
+      type: Date
+      
   },
   price: {
-      type: String,
-      require: true
+      type: String
+      
   },
   quant_min: {
-      type: Number,
-      require: true
+      type: Number
+    
   },
   quant_max: {
-      type: Number,
-      require: true
+      type: Number
+     
   },
   quant_day: {
-      type: String,
-      require: true
+      type: String
+      
   },
   description: {
-      type: String,
-      require: true,
+      type: String
+      
   },
   file: {
       name: String,
@@ -80,7 +79,7 @@ const TravelSchema = new mongoose.Schema({
       require: true
   }]
 });
-
+/*
 TravelSchema.pre("save", function () {
     if (!this.url) {
       this.url = `${process.env.APP_URL}/files/${this.key}`;
@@ -107,6 +106,6 @@ TravelSchema.pre("save", function () {
       );
     }
   });
-  
+  */
  module.exports = mongoose.model('Travel', TravelSchema);
 
