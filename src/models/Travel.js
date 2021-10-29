@@ -19,11 +19,11 @@ const TravelSchema = new mongoose.Schema({
       type: String
   },   
   date_initial: {
-      type: Date
+      type: String
      
   },
   date_end: {
-      type: Date
+      type: String
       
   },
   price: {
