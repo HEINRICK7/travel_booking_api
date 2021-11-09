@@ -19,11 +19,11 @@ const TravelSchema = new mongoose.Schema({
       type: String
   },   
   date_initial: {
-      type: String
+      type: Date
      
   },
   date_end: {
-      type: String
+      type: Date
       
   },
   price: {
@@ -79,7 +79,7 @@ const TravelSchema = new mongoose.Schema({
       require: true
   }]
 });
-/*
+
 TravelSchema.pre("save", function () {
     if (!this.url) {
       this.url = `${process.env.APP_URL}/files/${this.key}`;
@@ -106,6 +106,6 @@ TravelSchema.pre("save", function () {
       );
     }
   });
-  */
+  
  module.exports = mongoose.model('Travel', TravelSchema);
 

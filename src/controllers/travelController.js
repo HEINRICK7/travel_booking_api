@@ -7,7 +7,7 @@ module.exports = {
    
     async store(req, res){
         const {originalname: name, size, key, location: url=''} = req.file;
-        const { name_package, city, state, date_initial, date_end, departure_time, price, quant_min, quant_max,quant_day, description, itinerary} = req.body;
+        const { name_package, city, state, date_initial, date_end, price, quant_min, quant_max,quant_day, description, itinerary} = req.body;
         const { title, description_itinerary, departure_time_itinerary } = itinerary;
 
         try {
@@ -19,7 +19,6 @@ module.exports = {
                     state,
                     date_initial,
                     date_end,
-                    departure_time,
                     price,
                     quant_min,
                     quant_max,
