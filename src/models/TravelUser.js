@@ -5,7 +5,7 @@ const TravelUserSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    name:{
+    nome:{
         type: String,
         require: true,
     },
