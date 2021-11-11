@@ -1,6 +1,6 @@
 
 const TravelUser = require('../models/TravelUser');
-const TravelAdmin = require('../models/Travel');
+require('../models/Travel');
 
 
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
     },
     async index(req, res) {
         try {
-            const travelersUsers = await TravelUser.find();
+            const travelersUsers = await TravelUser.find().populate('travel_id');
 
             return res.send({ travelersUsers })
         } 
