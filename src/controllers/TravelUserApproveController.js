@@ -1,5 +1,5 @@
 
-const TravelUser = require('../models/TravelUser');
+const TravelUserApprove = require('../models/TravelUserApprove');
 const Travel = require('../models/Travel');
 
 
@@ -7,14 +7,14 @@ module.exports = {
 
     async store(req, res){
         const { travel_id } = req.params;
-        const { cpf } = req.body;
+        
 
         try {
-            if(!await TravelUser.findOne({cpf})){
-                const travelUser = await TravelUser.create(req.body,travel_id);
+            if(!await TravelUserApprove.findById(req.params._id)){
+                const travelUserApprove = await TravelUserApprove.create(req.body,travel_id);
 
                     return res.send({ 
-                        travelUser,
+                        travelUserApprove,
                         travel_id
                     });
             }else{
@@ -26,9 +26,10 @@ module.exports = {
             return res.status(400).send({ error: 'Registration failed'});
         }
     },
+    
     async index(req, res) {
         try {
-            const travelersUsers = await TravelUser.find().populate('travel_id');
+            const travelersUsers = await TravelUserApprove.find().populate('travel_id');
 
             return res.send({ travelersUsers })
         } 
@@ -38,6 +39,8 @@ module.exports = {
             
         }
     },
+
+    /*
     async show(req, res) {
         try {
             const userId = await TravelUser.findById(req.params._id);
@@ -60,5 +63,5 @@ module.exports = {
             
         }
     }
-
+*/
 }
