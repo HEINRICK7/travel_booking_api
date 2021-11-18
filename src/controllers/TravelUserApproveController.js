@@ -52,10 +52,11 @@ module.exports = {
             
         }
     },
+    */
     async destroy(req, res) {
         
         try {
-           const travelDestroy = await TravelUser.findByIdAndRemove(req.params._id);
+           const travelDestroy = await TravelUserApprove.findByIdAndRemove(req.params._id);
             return res.status(204).send({travelDestroy})
         } catch (error) {
 
@@ -63,5 +64,4 @@ module.exports = {
             
         }
     }
-*/
 }
