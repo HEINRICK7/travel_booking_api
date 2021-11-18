@@ -49,6 +49,17 @@ module.exports = {
             
         }
     },
+    async loadDataByCPF(req, res) {
+        try {
+            const cpf = await TravelUser.find(cpf => cpf === req.body.cpf);
+
+            return res.send({ cpf })
+        } catch (error) {
+
+            return res.status(400).send({ error: 'Error loading'});
+            
+        }
+    },
     async destroy(req, res) {
         
         try {
