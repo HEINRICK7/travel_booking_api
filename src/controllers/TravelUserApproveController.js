@@ -40,10 +40,10 @@ module.exports = {
         }
     },
 
-    /*
+    
     async show(req, res) {
         try {
-            const userId = await TravelUser.findById(req.params._id);
+            const userId = await TravelUserApprove.findById(req.params._id);
 
             return res.send({ userId })
         } catch (error) {
@@ -52,7 +52,7 @@ module.exports = {
             
         }
     },
-    */
+
     async destroy(req, res) {
         
         try {
