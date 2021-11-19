@@ -18,7 +18,7 @@ routes.post('/travel_register',multer(multerConfig).single('file'), TravelContro
 
 routes.get('/travel_all', TravelController.index);
 routes.get('/travel/:_id', TravelController.show);
-routes.get('/travel_user_cpf',TravelUserController.loadDataByCPF)
+routes.get('/travel_user_cpf',TravelUserApproveController.loadDataByCPF)
 
 
 routes.post('/travel_register_user', TravelUserController.store);

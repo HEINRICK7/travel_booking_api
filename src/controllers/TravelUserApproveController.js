@@ -39,7 +39,20 @@ module.exports = {
             
         }
     },
+    async loadDataByCPF(req, res) {
+        const { cpf } = req.body;
+        console.log( cpf);
+        try {
+            
+            const search = await TravelUserApprove.findOne({cpf});
+            return res.send({search});    
+            
+        } catch (error) {
 
+            return res.status(400).send({ error: 'Error loading'});
+            
+        }
+    },
     
     async show(req, res) {
         try {
