@@ -30,6 +30,8 @@ routes.delete('/travel_user/:_id', TravelUserController.destroy);
 
 routes.post('/travel_user_approve/:_id', TravelUserApproveController.store);
 routes.get('/travel_user_approve_all', TravelUserApproveController.index);
+routes.get('/travel_user_approve_id/:_id', TravelUserApproveController.show);
+routes.delete('/travel_user_approve_all/:_id', TravelUserApproveController.destroy);
 
 //routes.get('/profile', ProfileController.index);
 
