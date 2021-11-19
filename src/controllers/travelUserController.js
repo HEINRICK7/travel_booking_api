@@ -50,10 +50,12 @@ module.exports = {
         }
     },
     async loadDataByCPF(req, res) {
+        
         try {
-            const cpf = await TravelUser.find(cpf => cpf === req.body.cpf);
-
-            return res.send({ cpf })
+            const _cpf = req.body.cpf;
+            const search = await TravelUser.findOne({cpf:_cpf});
+        return res.send({search});    
+            
         } catch (error) {
 
             return res.status(400).send({ error: 'Error loading'});

@@ -18,10 +18,12 @@ routes.post('/travel_register',multer(multerConfig).single('file'), TravelContro
 
 routes.get('/travel_all', TravelController.index);
 routes.get('/travel/:_id', TravelController.show);
+routes.get('/travel_user_cpf',TravelUserController.loadDataByCPF)
 
 
 routes.post('/travel_register_user', TravelUserController.store);
 routes.get('/travel_user', TravelUserController.index);
+
 routes.get('/travel/:_id', TravelUserController.show);
 
 routes.delete('/travel_user/:_id', TravelUserController.destroy);
